@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grupo Método — Método Segurança do Trabalho, Saúde e Qualidade de Vida LTDA. Três décadas de atuação em SSMA, PDCA, PGR/GRO, LTCAT, PCMSO, NRs e Treinamentos Corporativos.">
+    <title>Grupo Método | Segurança do Trabalho, Saúde e Qualidade de Vida LTDA</title>
+
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cor-primaria: #0f3d2e;
+            --cor-secundaria: #1e6b52;
+            --cor-destaque: #e09f3e;
+            --cor-fundo: #f8faf9;
+            --cor-texto: #1e293b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--cor-texto);
+            background-color: var(--cor-fundo);
+        }
+
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(15, 61, 46, 0.97);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar-brand span {
+            color: var(--cor-destaque);
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.88) !important;
+            font-weight: 500;
+            transition: color 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--cor-destaque) !important;
+        }
+
+        /* Hero */
+        .hero-section {
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, #14533e 60%, #1d7054 100%);
+            color: #ffffff;
+            padding: 130px 0 90px;
+        }
+
+        .badge-sst {
+            background-color: rgba(224, 159, 62, 0.18);
+            color: var(--cor-destaque);
+            border: 1px solid rgba(224, 159, 62, 0.45);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Botões e Animações :hover */
+        .btn-destaque {
+            background-color: var(--cor-destaque);
+            color: #0f291e;
+            font-weight: 700;
+            border: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        }
+
+        .btn-destaque:hover {
+            background-color: #ebb055;
+            color: #0f291e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline-light {
+            transition: transform 0.25s ease;
+        }
+
+        .btn-outline-light:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Cards Interativos */
+        .metodo-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            height: 100%;
+        }
+
+        .metodo-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 16px 32px rgba(15, 61, 46, 0.11);
+            border-color: var(--cor-secundaria);
+        }
+
+        .icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background-color: rgba(30, 107, 82, 0.1);
+            color: var(--cor-secundaria);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.45rem;
+            flex-shrink: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .metodo-card:hover .icon-box {
+            background-color: var(--cor-primaria);
+            color: var(--cor-destaque);
+        }
+
+        /* Ciclo PDCA */
+        .pdca-step {
+            background: #ffffff;
+            border-top: 4px solid var(--cor-secundaria);
+            border-radius: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .pdca-step:hover {
+            transform: translateY(-6px);
+            border-top-color: var(--cor-destaque);
+            box-shadow: 0 12px 24px rgba(15, 61, 46, 0.1);
+        }
+
+        .pdca-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--cor-primaria);
+            color: var(--cor-destaque);
+            font-weight: 800;
+            font-size: 1.15rem;
+        }
+
+        /* Accordion das NRs */
+        .accordion-item {
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 12px !important;
+            overflow: hidden;
+            margin-bottom: 14px;
+            transition: box-shadow 0.25s ease;
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 8px 20px rgba(15, 61, 46, 0.08);
+        }
+
+        .accordion-button {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            color: var(--cor-primaria);
+            background-color: #ffffff;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(30, 107, 82, 0.08);
+            color: var(--cor-primaria);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        /* Cards de Treinamentos */
+        .training-badge-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--cor-secundaria);
+            border-radius: 10px;
+            padding: 16px 18px;
+            transition: transform 0.25s ease, border-left-color 0.25s ease, box-shadow 0.25s ease;
+            height: 100%;
+        }
+
+        .training-badge-card:hover {
+            transform: translateX(6px);
+            border-left-color: var(--cor-destaque);
+            box-shadow: 0 8px 18px rgba(15, 61, 46, 0.08);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(120deg, var(--cor-primaria), var(--cor-secundaria));
+            border-radius: 18px;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #09241b;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--cor-destaque);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#inicio">
+                <i class="bi bi-shield-check me-2 text-warning"></i>Grupo <span>Método</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre &amp; PDCA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pilares">Pilares</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#programas">Programas Legais</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nrs">Conformidade NRs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#treinamentos">Treinamentos</a></li>
+                    <li class="nav-item mt-2 mt-lg-0">
+                        <a class="btn btn-destaque btn-sm px-3 py-2 rounded-pill" href="#contato">Fale Conosco</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-8">
+                    <span class="badge badge-sst rounded-pill px-3 py-2 mb-3">
+                        TRÊS DÉCADAS DE ATUAÇÃO CONSOLIDADA EM SSMA
+                    </span>
+                    <h1 class="display-5 fw-extrabold mb-3">
+                        Método Segurança do Trabalho, Saúde e Qualidade de Vida LTDA
+                    </h1>
+                    <p class="lead opacity-90 mb-4">
+                        Potencializamos resultados corporativos ao integrar a excelência em <strong>Segurança, Saúde e Meio Ambiente (SSMA)</strong> como um pilar estratégico de geração de valor e conformidade legal.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contato" class="btn btn-destaque btn-lg px-4 rounded-3">
+                            <i class="bi bi-whatsapp me-2"></i>Apoiar Minhas Metas de Segurança
+                        </a>
+                        <a href="#programas" class="btn btn-outline-light btn-lg px-4 rounded-3">
+                            Explorar Portfólio Completo
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card bg-white text-dark border-0 shadow-lg rounded-4 p-4">
+                        <span class="text-uppercase fw-bold text-success small mb-2">Por que escolher a Método?</span>
+                        <h5 class="fw-bold mb-3">Exigências regulatórias convertidas em vantagem competitiva</h5>
+                        <p class="text-muted small mb-3">
+                            Aliamos décadas de experiência à prática baseada em evidências, promovendo ambientes de trabalho mais seguros, saudáveis e produtivos.
+                        </p>
+                        <div class="border-top pt-3 d-grid gap-2 small">
+                            <div><i class="bi bi-check-circle-fill text-success me-2"></i>Integração com ISO 9001, 14001 e 45001</div>
+                            <div><i class="bi bi-check-circle-fill text-success me-2"></i>Blindagem trabalhista e previdenciária</div>
+                            <div><i class="bi bi-check-circle-fill text-success me-2"></i>Gestão orientada pelo Ciclo PDCA</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Institucional & Ciclo PDCA -->
+    <section id="sobre" class="py-5 my-3">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-9">
+                    <h6 class="text-uppercase fw-bold text-success">Institucional e Metodologia</h6>
+                    <h2 class="fw-bold mb-3">O Ciclo PDCA de Gestão — Uma Jornada de Melhoria Contínua</h2>
+                    <p class="text-muted">
+                        Asseguramos a integridade do capital humano por meio de diagnósticos precisos em Segurança e Saúde do Trabalho (SST), mitigando riscos operacionais e garantindo a continuidade estratégica do negócio por meio da metodologia PDCA:
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="pdca-step p-4 shadow-sm">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="pdca-letter">P</span>
+                            <h5 class="fw-bold mb-0">Planejar (Plan)</h5>
+                        </div>
+                        <p class="text-muted small mb-0">
+                            Estabelecer metas, métodos e processos alinhados às necessidades operacionais e exigências legais.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="pdca-step p-4 shadow-sm">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="pdca-letter">D</span>
+                            <h5 class="fw-bold mb-0">Fazer (Do)</h5>
+                        </div>
+                        <p class="text-muted small mb-0">
+                            Implementar e executar os processos planejados com rigor técnico e engajamento das equipes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="pdca-step p-4 shadow-sm">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="pdca-letter">C</span>
+                            <h5 class="fw-bold mb-0">Checar (Check)</h5>
+                        </div>
+                        <p class="text-muted small mb-0">
+                            Monitorar e medir os resultados alcançados por meio de auditorias, indicadores e avaliações quantitativas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="pdca-step p-4 shadow-sm">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="pdca-letter">A</span>
+                            <h5 class="fw-bold mb-0">Agir (Act)</h5>
+                        </div>
+                        <p class="text-muted small mb-0">
+                            Agir corretivamente sobre falhas, padronizar processos e promover a melhoria contínua na organização.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nossos Pilares de Atuação -->
+    <section id="pilares" class="py-5 bg-white border-top border-bottom">
+        <div class="container py-2">
+            <div class="text-center mx-auto mb-5" style="max-width: 720px;">
+                <h6 class="text-uppercase fw-bold text-success">Estrutura Estratégica</h6>
+                <h2 class="fw-bold">Nossos Pilares de Atuação</h2>
+                <p class="text-muted">Como podemos apoiar as metas de segurança e conformidade da sua empresa hoje?</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="metodo-card p-4">
+                        <div class="icon-box mb-3">
+                            <i class="bi bi-shield-fill-check"></i>
+                        </div>
+                        <h4 class="fw-bold mb-2">Segurança e Saúde do Trabalho (SST)</h4>
+                        <p class="text-muted mb-0">
+                            Diagnósticos técnicos e gestão preventiva para proteção integral dos trabalhadores, eliminando passivos e assegurando total conformidade normativa.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="metodo-card p-4">
+                        <div class="icon-box mb-3">
+                            <i class="bi bi-globe-americas"></i>
+                        </div>
+                        <h4 class="fw-bold mb-2">Consultoria Ambiental</h4>
+                        <p class="text-muted mb-0">
+                            Soluções técnicas de alta performance que harmonizam eficiência operacional, conformidade normativa e sustentabilidade corporativa.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="metodo-card p-4">
+                        <div class="icon-box mb-3">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h4 class="fw-bold mb-2">Desenvolvimento Humano</h4>
+                        <p class="text-muted mb-0">
+                            Treinamentos estruturados que consolidam competências críticas e fortalecem a cultura de segurança na organização.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio de Soluções e Programas Legais -->
+    <section id="programas" class="py-5">
+        <div class="container py-3">
+            <div class="text-center mx-auto mb-5" style="max-width: 760px;">
+                <h6 class="text-uppercase fw-bold text-success">Engenharia, Saúde e Perícias</h6>
+                <h2 class="fw-bold">Portfólio de Soluções e Programas Legais</h2>
+                <p class="text-muted">Gestão técnica aprofundada para blindar sua operação contra riscos ocupacionais, trabalhistas e previdenciários.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- PGR / GRO -->
+                <div class="col-lg-6">
+                    <div class="metodo-card p-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box"><i class="bi bi-diagram-3-fill"></i></div>
+                            <h5 class="fw-bold mb-0">Programa de Gerenciamento de Riscos (PGR / GRO)</h5>
+                        </div>
+                        <p class="small text-muted mb-2">
+                            <strong>Abordagem Estratégica:</strong> Integramos o PGR/GRO às normas <strong>ISO 9001, ISO 14001 e ISO 45001</strong>, transcendendo o simples cumprimento legal (compliance).
+                        </p>
+                        <p class="small text-muted mb-0">
+                            <strong>Impacto:</strong> Convertemos a gestão de riscos em excelência operacional e vantagem competitiva, promovendo uma cultura organizacional de interdependência e percepção ativa para blindar a operação contra riscos ocupacionais.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- LTCAT -->
+                <div class="col-lg-6">
+                    <div class="metodo-card p-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box"><i class="bi bi-file-earmark-check-fill"></i></div>
+                            <h5 class="fw-bold mb-0">Laudo Técnico das Condições Ambientais de Trabalho (LTCAT)</h5>
+                        </div>
+                        <p class="small text-muted mb-2">
+                            <strong>Conformidade Previdenciária:</strong> Asseguramos a integridade técnica e o alinhamento rigoroso do LTCAT e do Perfil Profissiográfico Previdenciário (PPP) junto ao eSocial.
+                        </p>
+                        <p class="small text-muted mb-0">
+                            <strong>Prevenção:</strong> Quantificamos os riscos com precisão — <em>monitorar para proteger, medir para eliminar</em> —, mitigando passivos financeiros e atendendo integralmente à legislação previdenciária.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PCMSO -->
+                <div class="col-lg-6">
+                    <div class="metodo-card p-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box"><i class="bi bi-heart-pulse-fill"></i></div>
+                            <h5 class="fw-bold mb-0">Programa de Controle Médico de Saúde Ocupacional (PCMSO)</h5>
+                        </div>
+                        <p class="small text-muted mb-2">
+                            <strong>Gestão e Blindagem:</strong> A ausência do PCMSO configura infração grave e expõe a empresa a sanções, anulando a validade da gestão de saúde ocupacional.
+                        </p>
+                        <p class="small text-muted mb-0">
+                            <strong>Solução:</strong> Transformamos a rotina burocrática do PCMSO em uma ferramenta ativa e eficaz de gestão de riscos clínicos e ocupacionais.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Assistência Técnica NR-15 e NR-16 -->
+                <div class="col-lg-6">
+                    <div class="metodo-card p-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box"><i class="bi bi-briefcase-fill"></i></div>
+                            <h5 class="fw-bold mb-0">Assistência Técnica em Insalubridade e Periculosidade (NR-15 e NR-16)</h5>
+                        </div>
+                        <p class="small text-muted mb-2">
+                            <strong>Suporte Pericial Completo:</strong> Atuamos com rigor técnico desde a formulação de quesitos e acompanhamento de perícias judiciais até a emissão de pareceres técnicos divergentes.
+                        </p>
+                        <p class="small text-muted mb-0">
+                            <strong>Segurança Jurídica:</strong> Garantimos a integridade do PPP por meio da transposição fiel dos dados do LTCAT, assegurando conformidade histórica e blindagem contra passivos trabalhistas e previdenciários.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PCA -->
+                <div class="col-lg-6">
+                    <div class="metodo-card p-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box"><i class="bi bi-soundwave"></i></div>
+                            <h5 class="fw-bold mb-0">Programa de Conservação Auditiva (PCA)</h5>
+                        </div>
+                        <p class="small text-muted mb-2">
+                            <strong>Mapeamento e Proteção:</strong> Convertemos dados de dosimetria em proteção efetiva, mapeando na planta fabril os locais e máquinas com níveis de ruído acima dos limites de tolerância.
+                        </p>
+                        <p class="small text-muted mb-0">
+                            <strong>Integração:</strong> Integramos as medidas de controle e mitigação diretamente ao PGR da empresa, assegurando proteção real e respaldo jurídico.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PPR -->
+                <div class="col-lg-6">
+                    <div class="metodo-card p-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box"><i class="bi bi-lungs-fill"></i></div>
+                            <h5 class="fw-bold mb-0">Programa de Proteção Respiratória (PPR)</h5>
+                        </div>
+                        <p class="small text-muted mb-2">
+                            <strong>Gestão Estratégica:</strong> Mitigamos o risco de doenças ocupacionais e sanções fiscais por meio da implementação rigorosa do PPR.
+                        </p>
+                        <p class="small text-muted mb-0">
+                            <strong>Execução Técnica:</strong> Realizamos a seleção adequada de EPIs com Certificado de Aprovação (CA) válido, ensaios de vedação (<em>Fit Test</em>), treinamentos e monitoramento sistemático do uso e da manutenção dos equipamentos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conformidade em Normas Regulamentadoras (NRs) -->
+    <section id="nrs" class="py-5 bg-white border-top border-bottom">
+        <div class="container py-3">
+            <div class="text-center mx-auto mb-5" style="max-width: 760px;">
+                <h6 class="text-uppercase fw-bold text-success">Rigor Normativo e Prevenção de Interdições</h6>
+                <h2 class="fw-bold">Conformidade em Normas Regulamentadoras (NRs)</h2>
+                <p class="text-muted">Atuação especializada nas principais normas críticas para indústrias, logística, construção e serviços.</p>
+            </div>
+
+            <div class="accordion" id="accordionNRs">
+                <!-- NR-10 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nr10" aria-expanded="true" aria-controls="nr10">
+                            <i class="bi bi-lightning-charge-fill text-warning me-2"></i> NR-10 — Segurança em Instalações e Serviços em Eletricidade
+                        </button>
+                    </h2>
+                    <div id="nr10" class="accordion-collapse collapse show" data-bs-parent="#accordionNRs">
+                        <div class="accordion-body text-muted">
+                            <p class="mb-2"><strong>Responsabilidade Jurídica:</strong> A falha na execução de ações corretivas (etapa <em>Act</em> do PDCA) para riscos elétricos expõe a empresa à responsabilidade civil (indenizações e ações regressivas do INSS) e seus gestores à responsabilidade criminal por lesão corporal ou homicídio culposo.</p>
+                            <p class="mb-0"><strong>Atuação Método:</strong> Garantimos o registro rigoroso e a aplicação efetiva de controles para eliminar reincidências e assegurar integridade operacional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NR-11 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nr11" aria-expanded="false" aria-controls="nr11">
+                            <i class="bi bi-truck-flatbed text-success me-2"></i> NR-11 — Transporte, Movimentação, Armazenagem e Manuseio de Materiais
+                        </button>
+                    </h2>
+                    <div id="nr11" class="accordion-collapse collapse" data-bs-parent="#accordionNRs">
+                        <div class="accordion-body text-muted">
+                            <p class="mb-2"><strong>Eficiência Logística:</strong> Unimos segurança operacional e otimização de fluxos para garantir a sustentabilidade e a produtividade do negócio.</p>
+                            <p class="mb-0"><strong>Capacitação:</strong> Aplicamos treinamentos teóricos e práticos rigorosos para o manuseio e movimentação de cargas, mitigando acidentes e convertendo conformidade em diferencial competitivo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NR-12 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nr12" aria-expanded="false" aria-controls="nr12">
+                            <i class="bi bi-gear-wide-connected text-success me-2"></i> NR-12 — Segurança no Trabalho em Máquinas e Equipamentos
+                        </button>
+                    </h2>
+                    <div id="nr12" class="accordion-collapse collapse" data-bs-parent="#accordionNRs">
+                        <div class="accordion-body text-muted">
+                            <p class="mb-2"><strong>Riscos da Não Conformidade:</strong> A fiscalização aplica multas progressivas conforme a gravidade da infração e o porte da empresa. Em casos de risco grave e iminente, ocorre a interdição imediata de máquinas ou setores — paralisando a produção sem suspender o pagamento de salários. Para fabricantes e importadores, há ainda o risco de apreensão e proibição de venda, prejudicando o valor da marca.</p>
+                            <p class="fw-semibold text-dark mb-1">Soluções Completas:</p>
+                            <ul class="mb-0">
+                                <li><strong>Laudos e Defesa:</strong> Documentação técnica robusta e suporte estratégico para auditorias e demandas do Ministério Público do Trabalho (MPT).</li>
+                                <li><strong>Engenharia de Manutenção:</strong> Projetos de retrofitting e adequação de layouts com foco na integridade dos Equipamentos de Proteção Coletiva (EPCs).</li>
+                                <li><strong>Gestão de Riscos:</strong> Diagnósticos que conciliam rigor legal e alta produtividade industrial.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NR-17 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nr17" aria-expanded="false" aria-controls="nr17">
+                            <i class="bi bi-person-workspace text-success me-2"></i> NR-17 — Ergonomia e Análise Ergonômica do Trabalho (AET)
+                        </button>
+                    </h2>
+                    <div id="nr17" class="accordion-collapse collapse" data-bs-parent="#accordionNRs">
+                        <div class="accordion-body text-muted">
+                            <p class="mb-0"><strong>Prevenção e Produtividade:</strong> Elaboramos laudos e análises ergonômicas precisas para eliminar sobrecargas físicas e cognitivas, blindando a empresa contra passivos trabalhistas e elevando o bem-estar e o desempenho das equipes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NR-23 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nr23" aria-expanded="false" aria-controls="nr23">
+                            <i class="bi bi-fire text-danger me-2"></i> NR-23 — Proteção Contra Incêndios
+                        </button>
+                    </h2>
+                    <div id="nr23" class="accordion-collapse collapse" data-bs-parent="#accordionNRs">
+                        <div class="accordion-body text-muted">
+                            <ul class="mb-0 d-grid gap-2">
+                                <li><strong>Capacitação:</strong> Treinamentos completos para operação de equipamentos de combate, resposta a emergências e abandono de área.</li>
+                                <li><strong>Infraestrutura Estratégica:</strong> Adequação de rotas de fuga desobstruídas, devidamente sinalizadas e dimensionadas para evacuação rápida.</li>
+                                <li><strong>Segurança Dinâmica:</strong> Saídas de emergência acessíveis durante toda a jornada de trabalho, conciliando proteção patrimonial com facilidade de saída imediata.</li>
+                                <li><strong>Brigada de Incêndio:</strong> Formação de equipes de alta performance em total conformidade com as instruções técnicas do Corpo de Bombeiros.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NR-33 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nr33" aria-expanded="false" aria-controls="nr33">
+                            <i class="bi bi-door-closed-fill text-success me-2"></i> NR-33 — Segurança e Saúde nos Trabalhos em Espaços Confinados
+                        </button>
+                    </h2>
+                    <div id="nr33" class="accordion-collapse collapse" data-bs-parent="#accordionNRs">
+                        <div class="accordion-body text-muted">
+                            <p class="mb-2"><strong>Integração Normativa:</strong> Alinhamos os procedimentos da NR-33 ao PGR (NR-01), garantindo gestão sistêmica desde o planejamento até a execução das atividades.</p>
+                            <p class="mb-0"><strong>Gestão de Terceiros e Capacitação:</strong> Controle rigoroso para conformidade absoluta de prestadores de serviço e treinamentos especializados de alta performance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NR-35 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nr35" aria-expanded="false" aria-controls="nr35">
+                            <i class="bi bi-ladder text-success me-2"></i> NR-35 — Trabalho em Altura
+                        </button>
+                    </h2>
+                    <div id="nr35" class="accordion-collapse collapse" data-bs-parent="#accordionNRs">
+                        <div class="accordion-body text-muted">
+                            <p class="mb-0"><strong>Segurança Absoluta:</strong> Treinamentos técnicos de alta performance que integram planejamento, sistemas de proteção e técnicas de resgate para neutralizar riscos em atividades em altura.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Treinamentos Corporativos -->
+    <section id="treinamentos" class="py-5">
+        <div class="container py-3">
+            <div class="text-center mx-auto mb-5" style="max-width: 720px;">
+                <h6 class="text-uppercase fw-bold text-success">Desenvolvimento Humano e Cultura de Prevenção</h6>
+                <h2 class="fw-bold">Catálogo de Treinamentos Corporativos</h2>
+                <p class="text-muted">Capacitações teóricas e práticas estruturadas para consolidar competências críticas na sua equipe.</p>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-fire text-danger fs-4"></i>
+                        <span class="fw-semibold">Formação de Bombeiro Civil</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-shield-exclamation text-danger fs-4"></i>
+                        <span class="fw-semibold">Formação e Reciclagem de Brigada de Incêndio</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-extinguisher text-danger fs-4"></i>
+                        <span class="fw-semibold">Combate a Princípios de Incêndio</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-gear-fill text-success fs-4"></i>
+                        <span class="fw-semibold">Segurança na Operação de Máquinas e Equipamentos (NR-12)</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-box-arrow-in-down text-success fs-4"></i>
+                        <span class="fw-semibold">Segurança em Espaços Confinados (NR-33)</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-arrow-up-circle-fill text-success fs-4"></i>
+                        <span class="fw-semibold">Trabalho em Altura (NR-35)</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-truck text-success fs-4"></i>
+                        <span class="fw-semibold">Operador de Empilhadeira (NR-11)</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-building-gear text-success fs-4"></i>
+                        <span class="fw-semibold">Operador de Ponte Rolante (NR-11)</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-boxes text-success fs-4"></i>
+                        <span class="fw-semibold">Transporte e Movimentação de Cargas (NR-11)</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-lightning-fill text-warning fs-4"></i>
+                        <span class="fw-semibold">Segurança em Eletricidade — Básico (NR-10)</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-bandaid-fill text-danger fs-4"></i>
+                        <span class="fw-semibold">Primeiros Socorros</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-person-badge-fill text-success fs-4"></i>
+                        <span class="fw-semibold">Formação para Designado da CIPA (NR-05)</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-car-front-fill text-success fs-4"></i>
+                        <span class="fw-semibold">Direção Defensiva</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-radioactive text-warning fs-4"></i>
+                        <span class="fw-semibold">Manuseio e Segurança com Produtos Químicos</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-badge-card d-flex align-items-center gap-3">
+                        <i class="bi bi-emoji-smile-fill text-success fs-4"></i>
+                        <span class="fw-semibold">Qualidade de Vida no Trabalho (QVT)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-5 bg-white border-top">
+        <div class="container py-3">
+            <div class="cta-banner p-4 p-md-5 mb-5 shadow">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <h2 class="fw-bold mb-2">Como podemos apoiar as metas de segurança e conformidade da sua empresa hoje?</h2>
+                        <p class="mb-0 opacity-90">
+                            Fale diretamente com nossa equipe técnica para estruturar programas legais, laudos, perícias ou treinamentos sob medida.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="https://wa.me/5511987011223" target="_blank" rel="noopener noreferrer" class="btn btn-destaque btn-lg px-4 rounded-pill">
+                            <i class="bi bi-whatsapp me-2"></i>Chamar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h6 class="text-uppercase fw-bold text-success">Atendimento Corporativo</h6>
+                    <h3 class="fw-bold mb-3">Entre em Contato</h3>
+                    <p class="text-muted mb-4">
+                        <strong>Método Segurança do Trabalho, Saúde e Qualidade de Vida LTDA</strong><br>
+                        CNPJ: 33.233.895/0001-63
+                    </p>
+
+                    <div class="d-grid gap-3">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box me-3"><i class="bi bi-geo-alt-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Endereço</h6>
+                                <small class="text-muted">Rua Amparo, 315 — Baeta Neves, São Bernardo do Campo - SP</small>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box me-3"><i class="bi bi-whatsapp"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Telefone / WhatsApp</h6>
+                                <small class="text-muted">(11) 98701-1223</small>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box me-3"><i class="bi bi-envelope-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-0">E-mail</h6>
+                                <small class="text-muted">jrcalaca_stb@yahoo.com.br</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 bg-light">
+                        <form id="formContato">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="nome" class="form-label fw-semibold">Seu Nome</label>
+                                    <input type="text" class="form-control" id="nome" placeholder="Nome completo" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="empresa" class="form-label fw-semibold">Empresa</label>
+                                    <input type="text" class="form-control" id="empresa" placeholder="Razão social ou nome fantasia" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label fw-semibold">E-mail Corporativo</label>
+                                    <input type="email" class="form-control" id="email" placeholder="voce@empresa.com.br" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="telefone" class="form-label fw-semibold">WhatsApp / Telefone</label>
+                                    <input type="tel" class="form-control" id="telefone" placeholder="(11) 90000-0000" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="solucao" class="form-label fw-semibold">Solução ou Programa de Interesse</label>
+                                    <select class="form-select" id="solucao">
+                                        <option selected>PGR / GRO, LTCAT e PCMSO</option>
+                                        <option>Assistência Técnica Pericial (NR-15 e NR-16)</option>
+                                        <option>PCA e PPR</option>
+                                        <option>Adequação de NRs (NR-10, NR-11, NR-12, NR-17, NR-23, NR-33, NR-35)</option>
+                                        <option>Treinamentos Corporativos / Brigada / Bombeiro Civil</option>
+                                        <option>Consultoria Ambiental e Gestão Integrada SSMA</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="mensagem" class="form-label fw-semibold">Detalhes da Demanda</label>
+                                    <textarea class="form-control" id="mensagem" rows="3" placeholder="Informe o segmento da empresa, número aproximado de colaboradores ou necessidade específica..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-destaque w-100 py-2 rounded-3">
+                                        Solicitar Atendimento Técnico
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="feedbackForm" class="alert alert-success mt-3 d-none mb-0" role="alert">
+                            Solicitação enviada com sucesso! A equipe do Grupo Método entrará em contato em breve.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row align-items-center gy-3">
+                <div class="col-md-7 text-center text-md-start">
+                    <span class="fw-bold text-white">Grupo Método</span> — Método Segurança do Trabalho, Saúde e Qualidade de Vida LTDA.
+                    <div class="small mt-1">© 2026 Todos os direitos reservados • Três décadas de excelência em SSMA.</div>
+                </div>
+                <div class="col-md-5 text-center text-md-end small">
+                    <a href="#sobre" class="me-3">PDCA</a>
+                    <a href="#pilares" class="me-3">Pilares</a>
+                    <a href="#programas" class="me-3">Programas</a>
+                    <a href="#nrs" class="me-3">NRs</a>
+                    <a href="#treinamentos">Treinamentos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('formContato').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('feedbackForm').classList.remove('d-none');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
